@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+    <form [formGroup]="RegisterationForm">
+
+  <fieldset>
+    <div id="legend">
+      <legend class="">Register</legend>
+    </div>
+    <div class="form-group">
+      <!-- Username -->
+      <label for="Name">Name</label>
+        <input type="text" id="Name" name="username" placeholder="" class="input-xlarge" class="form-control" formControlName="Name">
+      <small class="red" *ngIf=" this.RegisterationForm.get('Name')?.errors?.required && this.RegisterationForm.get('Name').touched " >
+        *This field is required.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <!-- E-mail -->
+      <label for="email">E-mail</label>
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge" class="form-control" formControlName="Email">
+      <small class="red" *ngIf="this.RegisterationForm.get('Email')?.errors?.required && this.RegisterationForm.get('Email').touched">
+        *This field is required.
+      </small>
+
+    </div>
+
+    <div class="form-group">
+      <!-- Password-->
+      <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge" class="form-control" formControlName="Password">
+      <small class="red" *ngIf=" this.RegisterationForm.get('Password')?.errors?.required && this.RegisterationForm.get('Password').touched " >
+        *This field is required.
+      </small>
+      <div class="red" *ngIf=" this.RegisterationForm.get('Password')?.errors?.minlength && this.RegisterationForm.get('Password').touched " class="invalid-feedback" >
+        *The password should be of minimum 6 characters.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <!-- Confirm  Password -->
+      <label for="ConfirmPassword">Confirm Password</label>
+
+        <input type="password" id="ConfirmPassword" name="password_confirm" placeholder="" class="input-xlarge" class="form-control" formControlName="ConfirmPassword">
+        <small class="red" *ngIf=" this.RegisterationForm.get('ConfirmPassword')?.errors?.required && this.RegisterationForm.get('ConfirmPassword').touched " >
+          *This field is required.
+        </small>
+        <small class="red" *ngIf=" this.RegisterationForm.get('ConfirmPassword')?.errors?.minlength && this.RegisterationForm.get('ConfirmPassword').touched " class="invalid-feedback" >
+          *The Confirm password should be of minimum 6 characters.
+        </small>
+        <small class="red" *ngIf="this.whetherToShow()" class="invalid-feedback">
+          *The password doesnot match
+        </small>
+    </div>
+
+    <div class="form-group">
+      <!-- Button -->
+
+        <button class="btn btn-success">Register</button>
+    </div>
+  </fieldset>
+
+</form>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>

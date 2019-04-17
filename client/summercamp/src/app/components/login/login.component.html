@@ -1,0 +1,28 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <h2>Login</h2>
+        <form [formGroup]="login">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" formControlName="username" class="form-control"  />
+            <small *ngIf=" this.login.get('Name')?.errors?.required && this.login.get('Name').touched " >
+              This field is required.
+            </small></div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" formControlName="password" class="form-control" />
+            <small *ngIf="this.login.get('password')?.errors?.required && this.login.get('Password').touched">This field is required.</small>
+            <div *ngIf="this.login.get('password')?.errors?.minlength && this.login.get('Password').touched" class="invalid-feedback">
+              The password should be of minimum 6 characters.
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

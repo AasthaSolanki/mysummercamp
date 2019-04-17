@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <br><br>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <form [formGroup]="EnrollForm">
+
+        <fieldset>
+          <div id="legend">
+            <h2>Enroll</h2>
+          </div>
+          <div class="form-group">
+            <!-- Username -->
+            <label for="FirstName">First Name</label>
+            <input type="text" id="FirstName" name="username" placeholder="" class="input-xlarge" class="form-control" formControlName="FirstName">
+            <label for="LastName">Last Name</label>
+            <input type="text" id="LastName" name="username" placeholder="" class="input-xlarge" class="form-control" formControlName="LastName">
+          </div>
+
+          <div class="form-group">
+            <!-- E-mail -->
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" placeholder="" class="input-xlarge" class="form-control" formControlName="Email">
+          </div>
+
+          <div class="form-group">
+            <!-- Course-->
+            <label for="course">Select Course</label>
+            <select id="course" formControlName="Gender">
+              <option value="java">Java</option>
+              <option value="angular">Angular</option>
+              <option value="c++">C++</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <!-- Button -->
+
+            <button class="btn btn-success">Enroll</button>
+          </div>
+        </fieldset>
+
+      </form>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
