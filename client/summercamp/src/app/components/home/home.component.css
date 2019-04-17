@@ -58,6 +58,9 @@ li {
   flex-basis: 10%;
 }
 .col-9{
+  flex-basis: 6%;
+}
+.col-10{
   flex-basis: 10%;
 }
 
