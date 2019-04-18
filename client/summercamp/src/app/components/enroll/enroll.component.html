@@ -1,5 +1,17 @@
 <div class="container-fluid">
-  <br><br>
+  <div class="table-responsive">
+    <table class="table">
+      <tr>  <td><b>Name:</b></td><td>{{details.name}}</td></tr>
+      <tr>  <td><b>Description:</b></td><td>{{details.desc}}</td></tr>
+      <tr>  <td><b>Duration:</b> </td><td>{{details.duration}}</td></tr>
+      <tr>  <td><b>NoOfDays:</b></td><td>{{details.days}}</td></tr>
+      <tr>  <td><b>Coach:</b></td><td>{{details.coach}}</td></tr>
+      <tr>  <td><b>Fees</b></td><td>{{details.fees}}</td></tr>
+      <tr>  <td><b>Slot</b></td><td>{{details.slot}}</td></tr>
+      <tr>  <td><b>No. of Students</b></td><td>{{details.students}}</td></tr>
+      <tr>  <td><b>Available slots:</b></td><td>{{details.available}}</td></tr>
+    </table>
+  </div>
   <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
@@ -8,6 +20,11 @@
         <fieldset>
           <div id="legend">
             <h2>Enroll</h2>
+          </div>
+          <div class="form-group">
+
+            <label>{{details.name}}</label>
+
           </div>
           <div class="form-group">
             <!-- Username -->

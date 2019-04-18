@@ -12,13 +12,14 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { EnrollComponent } from './components/enroll/enroll.component';
 
+
 const appRoutes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: 'footer', component: FooterComponent },
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'enroll', component: EnrollComponent}
+  {path: 'enroll', component: EnrollComponent},
   ];
 @NgModule({
   declarations: [
