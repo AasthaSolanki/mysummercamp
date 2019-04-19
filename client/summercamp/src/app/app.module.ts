@@ -13,6 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { EnrollComponent } from './components/enroll/enroll.component';
 import { EnrollService } from "./enroll.service";
 import {HttpClientModule} from "@angular/common/http";
+import {QueryApi} from "./common/queryApi";
 
 
 const appRoutes: Routes = [
@@ -40,7 +41,7 @@ const appRoutes: Routes = [
     ),
     BrowserModule, RouterModule, ReactiveFormsModule,HttpClientModule
   ],
-  providers: [EnrollService],
+  providers: [EnrollService,QueryApi],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

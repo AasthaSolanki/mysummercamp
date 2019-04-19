@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Input} from "@angular/core";
 import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms";
 import { Router } from "@angular/router";
+import {EnrollService} from "../../enroll.service";
 // import { EnrollService } from "../../enroll.service";
 
 @Component({
@@ -14,19 +15,24 @@ export class EnrollComponent implements OnInit {
 
   public EnrollForm = this._formBuilder.group({
     FirstName: ['', Validators.required],
-    LastName: ['', Validators.required]
+    LastName: ['', Validators.required],
+    Email: ['', Validators.required],
+    Course:['', Validators.required]
   });
   constructor(
     private _formBuilder: FormBuilder,
     private router: Router,
-    // private enrollservice: EnrollService
+     private enrollservice: EnrollService
   ) {
-    // this.enroll=enrollservice.getValues();
+
   }
 @Input() public details:any;
 
 
   ngOnInit() {
+    this.enrollservice.getCourses().subscribe((value => {
+      console.log("----",value);
+    }))
   }
 
 }

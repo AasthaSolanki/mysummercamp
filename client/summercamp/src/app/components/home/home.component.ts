@@ -26,7 +26,7 @@ data={
         name:'Angular',
         desc: 'web development platform',
         duration: '1 month',
-        days: '3',
+        days: '30',
         coach: 'tara',
         fees: '3000',
         slot:  '3:00-5:00 pm',

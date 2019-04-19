@@ -19,11 +19,8 @@ export class CommonUtils {
       }});
     let value;
     for (const property of keys) {
-      if ( params.hasOwnProperty(property)) {
         value = CommonUtils.findObjectValue(params, property);
-      } else {
-        value = '';
-      }
+
       url = url.replace(delimiter + property + delimiter, value);
     }
     return url;

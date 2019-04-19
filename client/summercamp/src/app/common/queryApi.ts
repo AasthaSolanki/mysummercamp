@@ -2,10 +2,11 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {LocalStorageService} from 'angular-2-local-storage';
 import {ClientEndPoint} from "./clientEndPoint";
+import {environment} from "../../environments/environment";
 @Injectable()
 export class QueryApi {
 
-  constructor(private httpClient: HttpClient, private localStorageService: LocalStorageService) {
+  constructor(private httpClient: HttpClient) {
   }
 
   /**
@@ -14,8 +15,8 @@ export class QueryApi {
    * @returns {any}
    */
   getAPI_URL = (): any  => {
-    const envObj: any = this.localStorageService.get('envObj') ? this.localStorageService.get('envObj') : '';
-    return  envObj ? envObj.API_ROOT : '';
+
+    return  environment.API_ROOT;
   }
 
   /**
@@ -25,7 +26,7 @@ export class QueryApi {
    * @param urlParams
    * @returns {Observable<ArrayBuffer>}
    */
-  doGet(url: string, params: any, urlParams?: any) {
+  doGet(url: string, params?: any, urlParams?: any) {
     url = ClientEndPoint(url, params, urlParams);
 
     return this.httpClient.get(url, params );
