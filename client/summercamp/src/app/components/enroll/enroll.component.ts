@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Input} from "@angular/core";
 import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms";
 import { Router } from "@angular/router";
+import { EnrollService } from "../../enroll.service";
 
 @Component({
   selector: 'app-enroll',
@@ -18,6 +19,8 @@ export class EnrollComponent implements OnInit {
     private router: Router
   ) { }
 @Input() public details:any;
+
+
   ngOnInit() {
   }
 

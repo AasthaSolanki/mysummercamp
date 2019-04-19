@@ -1,0 +1,44 @@
+import { enrollDao } from '../DAO/enroll-dao'
+export default class studentController {
+  static getAll(req, res) {
+    console.log("----->")
+    enrollDao
+      .getAll()
+      .then(enroll => res.status(200).json(enroll))
+      .catch(error => res.status(400).json(error));
+  }
+
+  static getById(req, res) {
+    console.log('in Controller');
+    let _id = req.params.id;
+    enrollDao.getById(_id).then((enroll) => {
+      res.status(200).json(details).send(details);
+    })
+      .catch((error => res.json(error)))
+  }
+
+  static createNew(req, res) {
+    let _req = req.body;
+    enrollDao.createNew(_req).then((details) => {
+      res.status(200).json(details).send(details);
+    })
+      .catch(error => res.json(error))
+  }
+  static delete(req,res)
+  {
+    let _req = req.params.id;
+    enrollDao.delete(_req).then((deleteenroll) => {
+      res.status(200).json(deleteenroll).send(deleteenroll);
+    })
+      .catch(error => res.json(error))
+  }
+  static updateEnroll(req,res)
+  {
+    let id = req.params.id;
+    let _req = req.body;
+    enrollDao.updateEnroll(_req,id).then((updates) => {
+      res.status(200).json(updates).send(updates);
+    })
+      .catch(error => {res.status(400).json(error)})
+  }
+}

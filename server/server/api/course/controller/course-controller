@@ -1,0 +1,46 @@
+import courseDao from '../dao/course-dao'
+
+export default class courseController {
+
+  static getAll(req, res) {
+    console.log("gettt")
+    courseDao
+      .getAll()
+      .then(courses => res.status(200).json(courses))
+      .catch(error => res.status(400).json(error));
+  }
+
+  static getById(req, res) {
+    console.log('in Controller');
+    let _id = req.params.id;
+    courseDao.getById(_id).then((course) => {
+      res.status(200).json(details).send(details);
+    })
+      .catch((error => res.json(error)))
+  }
+
+  static createNew(req, res) {
+    let _req = req.body;
+    courseDao.createNew(_req).then((details) => {
+      res.status(200).json(details).send(details);
+    })
+      .catch(error => res.json(error))
+  }
+  static delete(req,res)
+  {
+    let _req = req.params.id;
+    courseDao.delete(_req).then((deletecourse) => {
+      res.status(200).json(deletecourse).send(deletecourse);
+    })
+      .catch(error => res.json(error))
+  }
+  static updateCourse(req,res)
+  {
+    let id = req.params.id;
+    let _req = req.body;
+    courseDao.updateCourse(_req,id).then((updates) => {
+      res.status(200).json(updates).send(updates);
+    })
+      .catch(error => {res.status(400).json(error)})
+  }
+}
