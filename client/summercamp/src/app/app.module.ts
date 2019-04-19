@@ -11,6 +11,8 @@ import {RouterModule, Routes } from "@angular/router";
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { EnrollComponent } from './components/enroll/enroll.component';
+import { EnrollService } from "./enroll.service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 const appRoutes: Routes = [
@@ -36,9 +38,9 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true }
     ),
-    BrowserModule, RouterModule, ReactiveFormsModule
+    BrowserModule, RouterModule, ReactiveFormsModule,HttpClientModule
   ],
-  providers: [],
+  providers: [EnrollService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
