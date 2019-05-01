@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     underscore:true
   });
   enroll.associate = function(models) {
-      enroll.hasMany(models.course,{
+      enroll.belongsTo(models.course,{
         as:'courses',
         foreignKey:{
           name:"course_id",

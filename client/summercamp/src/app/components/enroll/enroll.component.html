@@ -16,7 +16,7 @@
   <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
-      <form [formGroup]="EnrollForm">
+      <form [formGroup]="enrollform" (ngSubmit)="onsubmit(enrollform.value)">
 
         <fieldset>
           <div id="legend">
@@ -31,13 +31,13 @@
             <!-- Username -->
             <label for="FirstName">First Name</label>
             <input type="text" id="FirstName" name="username" placeholder="" class="input-xlarge" class="form-control" formControlName="FirstName">
-            <small class="red" *ngIf=" this.EnrollForm.get('FirstName')?.errors?.required && this.EnrollForm.get('FirstName').touched " >
+            <small class="red" *ngIf=" this.enrollform.get('FirstName')?.errors?.required && this.enrollform.get('FirstName').touched " >
               *This field is required.
             </small></div>
           <div class="form-group">
             <label for="LastName">Last Name</label>
             <input type="text" id="LastName" name="username" placeholder="" class="input-xlarge" class="form-control" formControlName="LastName">
-            <small class="red" *ngIf=" this.EnrollForm.get('LastName')?.errors?.required && this.EnrollForm.get('LastName').touched " >
+            <small class="red" *ngIf=" this.enrollform.get('LastName')?.errors?.required && this.enrollform.get('LastName').touched " >
               *This field is required.
             </small>
           </div>
@@ -46,7 +46,7 @@
             <!-- E-mail -->
             <label for="Email">E-mail</label>
             <input type="text" id="Email" name="Email" placeholder="" class="input-xlarge" class="form-control" formControlName="Email">
-            <small class="red" *ngIf="this.EnrollForm.get('Email')?.errors?.required && this.EnrollForm.get('Email').touched">
+            <small class="red" *ngIf="this.enrollform.get('Email')?.errors?.required && this.enrollform.get('Email').touched">
               *This field is required.
             </small>
           </div>
@@ -63,7 +63,6 @@
 
           <div class="form-group">
             <!-- Button -->
-
             <button class="btn btn-success">Enroll</button>
           </div>
         </fieldset>

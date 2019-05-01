@@ -2,8 +2,7 @@ import { enrollDao } from '../DAO/enroll-dao'
 export default class studentController {
   static getAll(req, res) {
     console.log("----->")
-    enrollDao
-      .getAll()
+    enrollDao.getAll()
       .then(enroll => res.status(200).json(enroll))
       .catch(error => res.status(400).json(error));
   }

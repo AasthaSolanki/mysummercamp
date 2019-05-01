@@ -45,7 +45,7 @@ export class QueryApi {
   }
 
   /**
-   * method for request an API by delete request
+   * method to request an API by delete request
    * @param {string} url
    * @param params
    * @returns {Observable<ArrayBuffer>}

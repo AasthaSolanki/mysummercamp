@@ -5,12 +5,19 @@ export  class enrollDao{
   static getAll(){
     return new Promise((resolve,reject)=>{
       console.log('aaaaaaaaaaaaaa');
-      model.enroll.findAndCountAll()
+      model.enroll.findAll()
         .then(enroll_details=>{
           console.log("---->",enroll_details)
           resolve(enroll_details);
         },(error)=>{
           reject(error);})
+    })
+  }
+  static createNew(request){
+    return new Promise((resolve,reject)=>{
+      models.enroll.create({firstname:request.firstname, lastname:request.lastname,email:request.email,course:request.course,course_id:request.course_id})
+        .then(results=>resolve(results))
+        .catch(error=>reject(error))
     })
   }
   static getById(_id){

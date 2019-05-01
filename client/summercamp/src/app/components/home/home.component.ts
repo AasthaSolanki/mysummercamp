@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseService } from "../../course.service";
+import { Router, NavigationExtras } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 private num: number;
 private position: number;
-  constructor() { }
+  constructor(private service: CourseService,
+              private router: Router) { }
 data={
     courses:[
       {
@@ -49,15 +52,28 @@ data={
   public details:any;
   courses = 'Courses';
 
-  Selectcourse(coursedata){
-    this.details=coursedata;
-  }
+  // Selectcourse(coursedata){
+  //   this.details=coursedata;
+  // }
 
   validateData(position : number){
     this.position = position;
-
   }
+
   ngOnInit() {
+    this.getdata()
+  }
+  getdata(){
+    this.service.getCourse().subscribe((response)=>{
+      this.courses=response;
+    })
+}
+
+  navigate(event) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: event
+    }
+    this.router.navigate(['/enroll'], navigationExtras);
   }
 
 }
